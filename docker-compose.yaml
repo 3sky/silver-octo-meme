@@ -1,0 +1,30 @@
+version: '3'
+services:
+  envoy:
+    build:
+      context: .
+      dockerfile: Dockerfile.envoy
+    ports:
+      - "8080:8080"
+      - "127.0.0.1:10000:10000"
+    volumes:
+      - ./envoy.yaml:/etc/envoy/envoy.yaml
+  publisher:
+    build:
+      context: ./publisher
+      dockerfile: Dockerfile
+    ports:
+      - "127.0.0.1:5553:5553"
+      - "127.0.0.1:3000:3000"
+    environment:
+      - PUB_PORT=5553
+  subscriber:
+    build:
+      context: ./subscriber
+      dockerfile: Dockerfile
+    environment:
+      - PUB_PORT=10000
+      - PUB_HOST=envoy
+
+networks:
+  default:
