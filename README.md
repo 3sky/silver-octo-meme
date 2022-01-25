@@ -9,7 +9,7 @@ Utilize [Envoy](https://www.envoyproxy.io) as a proxy.
 
 ## Implmentation
 
-![arch](https://excalidraw.com/#json=-24QxmqIttlH6wb4_7Oqt,BjLW7_-WRsN8ZRBM-DApFQ)
+![arch](./arch.png)
 
 ## Demo
 
