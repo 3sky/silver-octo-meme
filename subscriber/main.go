@@ -28,6 +28,7 @@ func main() {
     s.Connect("tcp://" + host + ":" + port)
     s.SetSubscribe("example")
 
+	log.Println("We're listening on" + host + ":" + port)
     log.Println("Ready and tuned!")
     for {
         address, err := s.Recv(0)

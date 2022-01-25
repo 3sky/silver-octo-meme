@@ -6,6 +6,7 @@ import (
     "github.com/gofiber/fiber/v2"
     zmq "github.com/pebbe/zmq4"
 	"os"
+	"log"
 )
 
 type Input struct {
@@ -25,6 +26,7 @@ func main() {
 		port = "5553"
 	}
 
+	log.Println("We're run on *:" + port)
     s.Bind("tcp://*:" + port)
 
     app.Post("/", func(c *fiber.Ctx) error {
